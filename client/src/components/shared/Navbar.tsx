@@ -83,11 +83,11 @@ export default function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          {/* Replace with new logo */}
+          {/* Updated logo path and styling */}
           <img
             src="/attached_assets/ايقونة CarXpert.jpg"
             alt={t("app.name")}
-            className="h-10 w-auto"
+            className="h-10 w-auto object-contain"
           />
         </Link>
 
