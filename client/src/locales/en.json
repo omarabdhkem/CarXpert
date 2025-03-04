@@ -1,0 +1,303 @@
+{
+  "app": {
+    "name": "CarXpert",
+    "tagline": "Your Premier Car Marketplace"
+  },
+  "nav": {
+    "home": "Home",
+    "cars": "Cars",
+    "dealers": "Dealers",
+    "maintenance": "Maintenance",
+    "blog": "Blog",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "login": "Login",
+    "signup": "Sign Up",
+    "profile": "Profile",
+    "logout": "Logout",
+    "addCar": "Add Car",
+    "compare": "Compare",
+    "favorites": "Favorites",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "home": {
+    "hero": {
+      "title": "Find Your Perfect Car",
+      "subtitle": "Thousands of cars from trusted sellers around the world",
+      "searchPlaceholder": "Search for make, model or keyword...",
+      "searchButton": "Search"
+    },
+    "featured": {
+      "title": "Featured Cars",
+      "subtitle": "Discover our handpicked selection of premium vehicles",
+      "viewAll": "View All"
+    },
+    "categories": {
+      "title": "Browse by Category",
+      "new": "New Cars",
+      "used": "Used Cars",
+      "luxury": "Luxury",
+      "sports": "Sports",
+      "suv": "SUVs & Crossovers",
+      "electric": "Electric & Hybrid"
+    },
+    "services": {
+      "title": "Our Services",
+      "buy": {
+        "title": "Buy a Car",
+        "desc": "Find your perfect match from thousands of listings"
+      },
+      "sell": {
+        "title": "Sell a Car",
+        "desc": "List your car and reach thousands of potential buyers"
+      },
+      "compare": {
+        "title": "Compare Cars",
+        "desc": "Compare features, prices and specs side by side"
+      },
+      "dealerships": {
+        "title": "Find Dealerships",
+        "desc": "Locate trusted dealerships near you"
+      },
+      "maintenance": {
+        "title": "Car Maintenance",
+        "desc": "Find top-rated maintenance services in your area"
+      }
+    }
+  },
+  "search": {
+    "title": "Advanced Search",
+    "filters": {
+      "make": "Make",
+      "model": "Model",
+      "year": "Year",
+      "priceRange": "Price Range",
+      "mileage": "Mileage",
+      "condition": "Condition",
+      "fuelType": "Fuel Type",
+      "transmission": "Transmission",
+      "location": "Location",
+      "color": "Color",
+      "features": "Features"
+    },
+    "buttons": {
+      "apply": "Apply Filters",
+      "clear": "Clear All",
+      "search": "Search"
+    },
+    "results": {
+      "title": "Search Results",
+      "found": "Found {{count}} cars matching your criteria",
+      "notFound": "No cars found with your criteria",
+      "sortBy": "Sort by"
+    }
+  },
+  "cars": {
+    "details": {
+      "specs": "Specifications",
+      "features": "Features",
+      "contact": "Contact Seller",
+      "viewMore": "View More Cars from this Seller",
+      "share": "Share",
+      "report": "Report Listing",
+      "price": "Price",
+      "location": "Location",
+      "mileage": "Mileage",
+      "year": "Year",
+      "make": "Make",
+      "model": "Model",
+      "vin": "VIN",
+      "transmission": "Transmission",
+      "color": "Color",
+      "engineType": "Engine Type",
+      "fuelType": "Fuel Type",
+      "bodyStyle": "Body Style"
+    },
+    "listings": {
+      "title": "Car Listings",
+      "filter": "Filter",
+      "sort": "Sort By",
+      "view": "View",
+      "grid": "Grid",
+      "list": "List"
+    },
+    "add": {
+      "title": "Add Your Car",
+      "basicInfo": "Basic Information",
+      "details": "Car Details",
+      "photos": "Photos",
+      "location": "Location",
+      "preview": "Preview",
+      "submit": "Submit Listing"
+    },
+    "compare": {
+      "title": "Compare Cars",
+      "addCar": "Add Car to Compare",
+      "remove": "Remove",
+      "specifications": "Specifications",
+      "performance": "Performance",
+      "features": "Features",
+      "dimensions": "Dimensions",
+      "saveComparison": "Save Comparison"
+    },
+    "conditions": {
+      "new": "New",
+      "excellent": "Excellent",
+      "good": "Good",
+      "fair": "Fair",
+      "poor": "Poor"
+    },
+    "fuelTypes": {
+      "gasoline": "Gasoline",
+      "diesel": "Diesel",
+      "electric": "Electric",
+      "hybrid": "Hybrid",
+      "plugin_hybrid": "Plug-in Hybrid",
+      "cng": "CNG",
+      "lpg": "LPG"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "username": "Username or Email",
+      "password": "Password",
+      "forgotPassword": "Forgot Password?",
+      "loginButton": "Login",
+      "orContinue": "Or continue with",
+      "noAccount": "Don't have an account?",
+      "signup": "Sign Up"
+    },
+    "register": {
+      "title": "Create Account",
+      "username": "Username",
+      "email": "Email",
+      "phone": "Phone Number",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "fullName": "Full Name",
+      "termsAndConditions": "I accept the Terms & Conditions",
+      "signupButton": "Create Account",
+      "haveAccount": "Already have an account?",
+      "login": "Login"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "email": "Email",
+      "resetButton": "Reset Password",
+      "backToLogin": "Back to Login"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "personalInfo": "Personal Information",
+    "myCars": "My Cars",
+    "favorites": "Favorites",
+    "comparisons": "Saved Comparisons",
+    "settings": "Settings",
+    "verifyEmail": "Verify Email",
+    "verifyPhone": "Verify Phone Number",
+    "changePassword": "Change Password",
+    "deleteAccount": "Delete Account",
+    "editProfile": "Edit Profile"
+  },
+  "dealerships": {
+    "title": "Car Dealerships",
+    "nearYou": "Dealerships Near You",
+    "viewDetails": "View Details",
+    "getDirections": "Get Directions",
+    "callNow": "Call Now",
+    "visitWebsite": "Visit Website",
+    "filters": {
+      "type": "Dealership Type",
+      "rating": "Rating",
+      "distance": "Distance"
+    }
+  },
+  "maintenance": {
+    "title": "Car Maintenance Centers",
+    "nearYou": "Service Centers Near You",
+    "viewDetails": "View Details",
+    "getDirections": "Get Directions",
+    "bookAppointment": "Book Appointment",
+    "callNow": "Call Now",
+    "filters": {
+      "service": "Service Type",
+      "rating": "Rating",
+      "distance": "Distance"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": "About CarXpert",
+      "desc": "CarXpert is a premier car marketplace connecting car buyers and sellers around the world."
+    },
+    "quickLinks": {
+      "title": "Quick Links",
+      "aboutUs": "About Us",
+      "contactUs": "Contact Us",
+      "careers": "Careers",
+      "press": "Press",
+      "blog": "Blog"
+    },
+    "support": {
+      "title": "Support",
+      "help": "Help Center",
+      "faq": "FAQ",
+      "policies": "Policies",
+      "terms": "Terms & Conditions",
+      "privacy": "Privacy Policy"
+    },
+    "social": {
+      "title": "Connect With Us",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "youtube": "YouTube"
+    },
+    "contact": {
+      "title": "Contact Info",
+      "email": "Email: info@carxpert.com",
+      "phone": "Phone: +1 234 567 890",
+      "address": "Address: 123 Auto Avenue, Car City, CC 12345"
+    },
+    "copyright": "© 2025 CarXpert. All rights reserved.",
+    "developer": "Developed by M7x",
+    "appDownload": "Download Our App",
+    "feedback": "Feedback & Inquiries",
+    "rateUs": "Rate Us"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "tryAgain": "Try Again",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "share": "Share",
+    "more": "More",
+    "less": "Less",
+    "all": "All",
+    "yes": "Yes",
+    "no": "No",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "confirm": "Confirm",
+    "price": "Price",
+    "next": "Next",
+    "previous": "Previous",
+    "goBack": "Go Back",
+    "apply": "Apply",
+    "select": "Select"
+  }
+}
