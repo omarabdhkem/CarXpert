@@ -83,12 +83,11 @@ export default function Navbar() {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Car className="h-6 w-6 text-primary" />
-          {/* Replace text with logo */}
+          {/* Replace with new logo */}
           <img
-            src="/attached_assets/صورة واتساب بتاريخ 2025-03-04 في 13.40.30_94acabc3.jpg"
+            src="/attached_assets/ايقونة CarXpert.jpg"
             alt={t("app.name")}
-            className="h-8 w-auto"
+            className="h-10 w-auto"
           />
         </Link>
 
