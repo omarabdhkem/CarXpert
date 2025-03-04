@@ -84,7 +84,12 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Car className="h-6 w-6 text-primary" />
-          <span className="font-bold text-xl">{t("app.name")}</span>
+          {/* Replace text with logo */}
+          <img
+            src="/attached_assets/صورة واتساب بتاريخ 2025-03-04 في 13.40.30_94acabc3.jpg"
+            alt={t("app.name")}
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -101,7 +106,7 @@ export default function Navbar() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              
+
               <NavigationMenuItem>
                 <Link href="/cars">
                   <NavigationMenuLink className={cn(
@@ -112,7 +117,7 @@ export default function Navbar() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              
+
               <NavigationMenuItem>
                 <NavigationMenuTrigger>{t("nav.dealers")}</NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -165,7 +170,7 @@ export default function Navbar() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-              
+
               <NavigationMenuItem>
                 <Link href="/maintenance">
                   <NavigationMenuLink className={cn(
@@ -176,7 +181,7 @@ export default function Navbar() {
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
-              
+
               {user && (
                 <NavigationMenuItem>
                   <Link href="/compare">
@@ -215,7 +220,7 @@ export default function Navbar() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-10 w-10 rounded-full">
                   <Avatar>
-                    <AvatarImage src={user.avatarUrl} alt={user.username} />
+                    <AvatarImage src={user.avatarUrl || undefined} alt={user.username} />
                     <AvatarFallback>{user.username.charAt(0).toUpperCase()}</AvatarFallback>
                   </Avatar>
                 </Button>
@@ -354,7 +359,7 @@ export default function Navbar() {
                     </Button>
                   </div>
                 )}
-                
+
                 {user && (
                   <Button 
                     variant="destructive" 
