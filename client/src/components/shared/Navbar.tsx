@@ -89,6 +89,11 @@ export default function Navbar() {
             alt={t("app.name")}
             className="h-10 w-auto object-contain"
           />
+          <img 
+            src="/attached_assets/icon-CarXpert.jpg" 
+            alt="CarXpert Logo" 
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
