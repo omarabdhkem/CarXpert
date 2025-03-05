@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { setupAuth } from "./auth";
+import { setupChat } from "./chat";
 import { storage } from "./storage";
 import { z } from "zod";
 import { insertCarSchema } from "@shared/schema";
@@ -8,6 +9,7 @@ import { insertCarSchema } from "@shared/schema";
 export async function registerRoutes(app: Express): Promise<Server> {
   // sets up /api/register, /api/login, /api/logout, /api/user
   setupAuth(app);
+  setupChat(app);
 
   // Cars routes
   app.get("/api/cars", async (req, res, next) => {
