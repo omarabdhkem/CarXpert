@@ -60,6 +60,11 @@ const searchFormSchema = z.object({
 
 type SearchFormValues = z.infer<typeof searchFormSchema>;
 
+// Utility function to safely get string value from form field
+const getStringValue = (value: string | number | undefined): string | undefined => {
+  return typeof value === 'string' ? value : undefined;
+};
+
 export default function SearchSection() {
   const [, setLocation] = useLocation();
   const { t } = useTranslation();
@@ -313,7 +318,7 @@ export default function SearchSection() {
                                 field.onChange(value);
                                 addFilter(`${t("search.filters.fuelType")}: ${t(`cars.fuelTypes.${value}`)}`);
                               }}
-                              defaultValue={typeof field.value === 'string' ? field.value : undefined}
+                              defaultValue={getStringValue(field.value)}
                             >
                               <FormControl>
                                 <SelectTrigger>
@@ -345,7 +350,7 @@ export default function SearchSection() {
                                 field.onChange(value);
                                 addFilter(`${t("search.filters.transmission")}: ${value}`);
                               }}
-                              defaultValue={typeof field.value === 'string' ? field.value : undefined}
+                              defaultValue={getStringValue(field.value)}
                             >
                               <FormControl>
                                 <SelectTrigger>
@@ -376,7 +381,7 @@ export default function SearchSection() {
                                 field.onChange(value);
                                 addFilter(`${t("search.filters.color")}: ${value}`);
                               }}
-                              defaultValue={typeof field.value === 'string' ? field.value : undefined}
+                              defaultValue={getStringValue(field.value)}
                             >
                               <FormControl>
                                 <SelectTrigger>

@@ -39,7 +39,7 @@ export default function ComparePage() {
   // Get cars for selected comparison
   const comparisonCars = (() => {
     if (!comparison || !cars || !comparison.carIds || !Array.isArray(comparison.carIds)) return [];
-    return cars.filter(car => comparison.carIds!.includes(car.id));
+    return cars.filter(car => comparison.carIds?.includes(car.id));
   })();
 
   // Loading state
