@@ -1,0 +1,77 @@
+version: '3.9'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: carxpert-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: carxpert
+      POSTGRES_USER: carxpert_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-carxpert_secure_password_change_me}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    ports:
+      - "5432:5432"
+    networks:
+      - carxpert-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U carxpert_user -d carxpert"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # CarXpert Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carxpert-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://carxpert_user:${DB_PASSWORD:-carxpert_secure_password_change_me}@postgres:5432/carxpert
+      SESSION_SECRET: ${SESSION_SECRET:-change-this-to-a-random-secret-key-in-production}
+      GOOGLE_MAPS_API_KEY: ${GOOGLE_MAPS_API_KEY:-}
+    ports:
+      - "5000:5000"
+    networks:
+      - carxpert-network
+    volumes:
+      - ./uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Adminer - Database Management UI (Optional)
+  adminer:
+    image: adminer:latest
+    container_name: carxpert-adminer
+    restart: unless-stopped
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - carxpert-network
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+      ADMINER_DESIGN: nette
+
+networks:
+  carxpert-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

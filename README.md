@@ -4,6 +4,33 @@
 
 منصة CarXpert هي سوق حديث للسيارات يتميز بنظام بحث ديناميكي، وقوائم سيارات مع معلومات تفصيلية، ونظام مصادقة أساسي للمستخدمين. تتضمن النسخة الأولى دعم متعدد اللغات، وتبديل السمات، وواجهة بديهية مستوحاة من أسواق السيارات الرائدة.
 
+## 🐳 نشر سريع مع Docker / Quick Deploy with Docker
+
+**الطريقة الأسهل! / Easiest Way!**
+
+```bash
+# 1. استنساخ المشروع / Clone project
+git clone https://github.com/omarabdhkem/CarXpert.git
+cd CarXpert
+
+# 2. نسخ إعدادات البيئة / Copy environment settings
+cp .env.docker .env
+
+# 3. تشغيل! / Run!
+docker-compose up -d
+```
+
+✅ **التطبيق + قاعدة بيانات PostgreSQL في حزمة واحدة!**  
+✅ **Application + PostgreSQL database in one package!**
+
+**الوصول / Access:**
+- التطبيق / App: http://localhost:5000
+- إدارة DB / DB Admin: http://localhost:8080
+
+📖 **دليل كامل:** [DOCKER_GUIDE.md](./DOCKER_GUIDE.md)
+
+---
+
 ## 🚀 البدء السريع / Quick Start
 
 ```bash
@@ -53,6 +80,7 @@ npm run dev
 ## 📚 التوثيق الكامل / Complete Documentation
 
 ### أدلة التشغيل / Operation Guides
+- 🐳 [DOCKER_GUIDE.md](./DOCKER_GUIDE.md) - **نشر Docker (الأسهل!)** / Docker deployment (Easiest!)
 - 🚀 [QUICK_START.md](./QUICK_START.md) - البدء السريع (5 دقائق)
 - 📘 [DEPLOYMENT_GUIDE.md](./DEPLOYMENT_GUIDE.md) - دليل النشر الشامل (8 خيارات استضافة)
 
