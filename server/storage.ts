@@ -1,5 +1,6 @@
-import { users, types, User, InsertUser, cars, Car, InsertCar, favorites, Favorite, InsertFavorite, carComparisons, CarComparison, InsertCarComparison, carShops, CarShop, InsertCarShop, carMaintenanceShops, CarMaintenanceShop, InsertCarMaintenanceShop } from "@shared/schema";
+import { users, User, InsertUser, cars, Car, InsertCar, favorites, Favorite, InsertFavorite, carComparisons, CarComparison, InsertCarComparison, carShops, CarShop, InsertCarShop, carMaintenanceShops, CarMaintenanceShop, InsertCarMaintenanceShop } from "@shared/schema";
 import session from "express-session";
+import type { Store } from "express-session";
 import createMemoryStore from "memorystore";
 
 const MemoryStore = createMemoryStore(session);
@@ -8,7 +9,7 @@ const MemoryStore = createMemoryStore(session);
 // you might need
 export interface IStorage {
   // Session store
-  sessionStore: session.SessionStore;
+  sessionStore: Store;
   
   // User operations
   getUser(id: number): Promise<User | undefined>;
@@ -52,7 +53,7 @@ export class MemStorage implements IStorage {
   private carComparisons: Map<number, CarComparison>;
   private carShops: Map<number, CarShop>;
   private carMaintenanceShops: Map<number, CarMaintenanceShop>;
-  sessionStore: session.SessionStore;
+  sessionStore: Store;
   private userIdCounter: number;
   private carIdCounter: number;
   private carComparisonIdCounter: number;
@@ -268,7 +269,10 @@ export class MemStorage implements IStorage {
     const id = this.userIdCounter++;
     const now = new Date();
     const user: User = { 
-      ...insertUser, 
+      ...insertUser,
+      phone: insertUser.phone ?? null,
+      fullName: insertUser.fullName ?? null,
+      avatarUrl: insertUser.avatarUrl ?? null,
       id, 
       isVerified: false,
       createdAt: now
@@ -315,6 +319,18 @@ export class MemStorage implements IStorage {
     const now = new Date();
     const car: Car = {
       ...carData,
+      color: carData.color ?? null,
+      location: carData.location ?? null,
+      description: carData.description ?? null,
+      condition: carData.condition ?? null,
+      fuelType: carData.fuelType ?? null,
+      transmission: carData.transmission ?? null,
+      mileage: carData.mileage ?? null,
+      imageUrls: carData.imageUrls ?? null,
+      latitude: carData.latitude ?? null,
+      longitude: carData.longitude ?? null,
+      features: carData.features ?? null,
+      listingType: carData.listingType ?? null,
       id,
       isActive: true,
       createdAt: now
@@ -345,8 +361,12 @@ export class MemStorage implements IStorage {
   
   async addFavorite(favorite: InsertFavorite): Promise<Favorite> {
     const key = `${favorite.userId}-${favorite.carId}`;
-    this.favorites.set(key, favorite);
-    return favorite;
+    const fav: Favorite = {
+      userId: favorite.userId ?? null,
+      carId: favorite.carId ?? null
+    };
+    this.favorites.set(key, fav);
+    return fav;
   }
   
   async removeFavorite(userId: number, carId: number): Promise<boolean> {
@@ -370,6 +390,7 @@ export class MemStorage implements IStorage {
     const now = new Date();
     const comparison: CarComparison = {
       ...comparisonData,
+      carIds: comparisonData.carIds ?? null,
       id,
       createdAt: now
     };
@@ -390,6 +411,10 @@ export class MemStorage implements IStorage {
     const id = this.carShopIdCounter++;
     const shop: CarShop = {
       ...shopData,
+      phone: shopData.phone ?? null,
+      website: shopData.website ?? null,
+      types: shopData.types ?? null,
+      rating: shopData.rating ?? null,
       id
     };
     this.carShops.set(id, shop);
@@ -409,6 +434,10 @@ export class MemStorage implements IStorage {
     const id = this.carMaintenanceShopIdCounter++;
     const shop: CarMaintenanceShop = {
       ...shopData,
+      phone: shopData.phone ?? null,
+      website: shopData.website ?? null,
+      rating: shopData.rating ?? null,
+      services: shopData.services ?? null,
       id
     };
     this.carMaintenanceShops.set(id, shop);

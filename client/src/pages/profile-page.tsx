@@ -28,6 +28,7 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
@@ -244,7 +245,7 @@ export default function ProfilePage() {
             <CardHeader>
               <div className="flex justify-center mb-4">
                 <Avatar className="h-24 w-24">
-                  <AvatarImage src={user.avatarUrl} alt={user.username} />
+                  <AvatarImage src={user.avatarUrl || undefined} alt={user.username} />
                   <AvatarFallback className="text-2xl">
                     {user.username.charAt(0).toUpperCase()}
                   </AvatarFallback>
@@ -555,7 +556,7 @@ export default function ProfilePage() {
                       </div>
                       <Button 
                         variant="outline" 
-                        disabled={user.isVerified}
+                        disabled={user.isVerified || false}
                       >
                         {user.isVerified ? "Verified" : "Send Verification"}
                       </Button>

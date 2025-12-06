@@ -134,7 +134,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const favorites = await storage.getFavorites(req.user!.id);
       
       // Get all cars for these favorites
-      const carIds = favorites.map(fav => fav.carId);
+      const carIds = favorites.map(fav => fav.carId).filter((id): id is number => id !== null);
       const favoriteCars = await Promise.all(
         carIds.map(id => storage.getCar(id))
       );

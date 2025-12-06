@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { useSearch, useLocation } from "wouter";
-import { Car } from "@shared/schema";
+import { Car, CarComparison } from "@shared/schema";
 import Layout from "@/components/shared/Layout";
 import CarCompare from "@/components/cars/CarCompare";
 import { useAuth } from "@/hooks/use-auth";
@@ -31,15 +31,15 @@ export default function ComparePage() {
   });
 
   // Fetch specific comparison if ID is available
-  const { data: comparison, isLoading: isLoadingComparison } = useQuery({
+  const { data: comparison, isLoading: isLoadingComparison } = useQuery<CarComparison>({
     queryKey: [`/api/comparisons/${comparisonId}`],
     enabled: !!comparisonId,
   });
 
   // Get cars for selected comparison
   const comparisonCars = (() => {
-    if (!comparison || !cars) return [];
-    return cars.filter(car => comparison.carIds.includes(car.id));
+    if (!comparison || !cars || !comparison.carIds || !Array.isArray(comparison.carIds)) return [];
+    return cars.filter(car => comparison.carIds!.includes(car.id));
   })();
 
   // Loading state

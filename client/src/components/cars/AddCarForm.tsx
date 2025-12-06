@@ -353,7 +353,7 @@ export default function AddCarForm() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>{t("search.filters.condition")}</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select onValueChange={field.onChange} defaultValue={field.value || undefined}>
                             <FormControl>
                               <SelectTrigger>
                                 <SelectValue placeholder="Select Condition" />
@@ -384,6 +384,7 @@ export default function AddCarForm() {
                             placeholder="Describe your car, including any special features, history, or selling points."
                             className="h-32"
                             {...field}
+                            value={field.value || ""}
                           />
                         </FormControl>
                         <FormMessage />
@@ -421,7 +422,7 @@ export default function AddCarForm() {
                         <FormItem>
                           <FormLabel>{t("cars.details.color")}</FormLabel>
                           <FormControl>
-                            <Input placeholder="e.g. Red, Blue, Silver" {...field} />
+                            <Input placeholder="e.g. Red, Blue, Silver" {...field} value={field.value || ""} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -436,7 +437,7 @@ export default function AddCarForm() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>{t("cars.details.fuelType")}</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select onValueChange={field.onChange} defaultValue={field.value || undefined}>
                             <FormControl>
                               <SelectTrigger>
                                 <SelectValue placeholder="Select Fuel Type" />
@@ -461,7 +462,7 @@ export default function AddCarForm() {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel>{t("cars.details.transmission")}</FormLabel>
-                          <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <Select onValueChange={field.onChange} defaultValue={field.value || undefined}>
                             <FormControl>
                               <SelectTrigger>
                                 <SelectValue placeholder="Select Transmission" />
@@ -629,6 +630,7 @@ export default function AddCarForm() {
                           <Input
                             placeholder="e.g. New York, NY"
                             {...field}
+                            value={field.value || ""}
                           />
                         </FormControl>
                         <FormDescription>
@@ -684,7 +686,7 @@ export default function AddCarForm() {
                         <FormItem>
                           <FormLabel>Latitude</FormLabel>
                           <FormControl>
-                            <Input {...field} readOnly />
+                            <Input {...field} value={field.value || ""} readOnly />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -698,7 +700,7 @@ export default function AddCarForm() {
                         <FormItem>
                           <FormLabel>Longitude</FormLabel>
                           <FormControl>
-                            <Input {...field} readOnly />
+                            <Input {...field} value={field.value || ""} readOnly />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -752,7 +754,7 @@ export default function AddCarForm() {
                       </div>
                       <div className="border rounded-md p-3 text-center">
                         <p className="text-sm text-muted-foreground">Mileage</p>
-                        <p className="font-medium">{form.watch("mileage") ? `${form.watch("mileage").toLocaleString()} mi` : "Not specified"}</p>
+                        <p className="font-medium">{form.watch("mileage") ? `${form.watch("mileage")?.toLocaleString()} mi` : "Not specified"}</p>
                       </div>
                       <div className="border rounded-md p-3 text-center">
                         <p className="text-sm text-muted-foreground">Transmission</p>

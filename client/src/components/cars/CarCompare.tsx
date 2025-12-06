@@ -109,9 +109,9 @@ export default function CarCompare({
 
   // Update component when comparison data changes
   useEffect(() => {
-    if (comparisonData && comparisonData.carIds && allCars) {
+    if (comparisonData && comparisonData.carIds && Array.isArray(comparisonData.carIds) && allCars) {
       const carsToCompare = allCars.filter(car => 
-        comparisonData.carIds.includes(car.id)
+        comparisonData.carIds!.includes(car.id)
       );
       setCompareCars(carsToCompare);
     }
