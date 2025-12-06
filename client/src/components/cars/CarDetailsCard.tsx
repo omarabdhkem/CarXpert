@@ -115,11 +115,11 @@ export default function CarDetailsCard({ car, isFavorite = false }: CarDetailsCa
       });
 
       let comparisonId;
-      if (existingComparisons && existingComparisons.length > 0) {
+      if (existingComparisons && Array.isArray(existingComparisons) && existingComparisons.length > 0) {
         // Add to the first comparison
         const comparison = existingComparisons[0];
         // Check if car is already in comparison
-        if (comparison.carIds.includes(car.id)) {
+        if (comparison.carIds && Array.isArray(comparison.carIds) && comparison.carIds.includes(car.id)) {
           toast({
             title: "Car already in comparison",
             description: "This car is already in your comparison list",
@@ -129,7 +129,7 @@ export default function CarDetailsCard({ car, isFavorite = false }: CarDetailsCa
         }
         // Update comparison with new car
         await apiRequest("PUT", `/api/comparisons/${comparison.id}`, {
-          carIds: [...comparison.carIds, car.id],
+          carIds: [...(comparison.carIds || []), car.id],
         });
         comparisonId = comparison.id;
       } else {

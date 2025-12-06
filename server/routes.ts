@@ -11,6 +11,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   setupAuth(app);
   setupChat(app);
 
+  // Health check endpoint for Docker
+  app.get("/api/health", (req, res) => {
+    res.status(200).json({ 
+      status: "healthy", 
+      timestamp: new Date().toISOString(),
+      service: "CarXpert API"
+    });
+  });
+
   // Cars routes
   app.get("/api/cars", async (req, res, next) => {
     try {
@@ -134,7 +143,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const favorites = await storage.getFavorites(req.user!.id);
       
       // Get all cars for these favorites
-      const carIds = favorites.map(fav => fav.carId);
+      const carIds = favorites.map(fav => fav.carId).filter((id): id is number => id !== null);
       const favoriteCars = await Promise.all(
         carIds.map(id => storage.getCar(id))
       );

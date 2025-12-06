@@ -281,7 +281,7 @@ export default function AuthPage() {
                           <FormItem>
                             <FormLabel>{t("auth.register.fullName")}</FormLabel>
                             <FormControl>
-                              <Input placeholder="John Doe" {...field} />
+                              <Input placeholder="John Doe" {...field} value={field.value || ""} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>

@@ -53,9 +53,17 @@ const searchFormSchema = z.object({
   maxYear: z.number().optional(),
   condition: z.string().optional(),
   bodyType: z.string().optional(),
+  fuelType: z.string().optional(),
+  transmission: z.string().optional(),
+  color: z.string().optional(),
 });
 
 type SearchFormValues = z.infer<typeof searchFormSchema>;
+
+// Utility function to safely get string value from form field
+const getStringValue = (value: string | number | undefined): string | undefined => {
+  return typeof value === 'string' ? value : undefined;
+};
 
 export default function SearchSection() {
   const [, setLocation] = useLocation();
@@ -310,7 +318,7 @@ export default function SearchSection() {
                                 field.onChange(value);
                                 addFilter(`${t("search.filters.fuelType")}: ${t(`cars.fuelTypes.${value}`)}`);
                               }}
-                              defaultValue={field.value}
+                              defaultValue={getStringValue(field.value)}
                             >
                               <FormControl>
                                 <SelectTrigger>
@@ -342,7 +350,7 @@ export default function SearchSection() {
                                 field.onChange(value);
                                 addFilter(`${t("search.filters.transmission")}: ${value}`);
                               }}
-                              defaultValue={field.value}
+                              defaultValue={getStringValue(field.value)}
                             >
                               <FormControl>
                                 <SelectTrigger>
@@ -373,7 +381,7 @@ export default function SearchSection() {
                                 field.onChange(value);
                                 addFilter(`${t("search.filters.color")}: ${value}`);
                               }}
-                              defaultValue={field.value}
+                              defaultValue={getStringValue(field.value)}
                             >
                               <FormControl>
                                 <SelectTrigger>
