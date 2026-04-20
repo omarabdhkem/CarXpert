@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.gitignore
+*.log
+*.tar.gz
+.DS_Store
+.replit
+attached_assets
+README.md
